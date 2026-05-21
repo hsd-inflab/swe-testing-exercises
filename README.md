@@ -59,7 +59,7 @@ Die Sammlung enthält zwei didaktisch unterschiedliche Aufgabentypen:
 | 02   | *mock-notification-sender*               | Geführt       | Interaktion verifizieren                |
 | 03   | *stub-error-case*                        | Geführt       | Fehler-/Ausnahmepfad testen             |
 | 04   | *mock-interaction-verification*          | Geführt       | Aufrufparameter prüfen                  |
-| 05   | [test-doubles-book-lending](aufgaben/05-test-doubles-book-lending/) | Entscheidung  | Bibliotheksausleihe (Verfügbarkeit, Speicherung, Bestätigung) |
+| 05   | *test-doubles-order-discount*            | Entscheidung  | Rabattberechnung                        |
 | 06   | *test-doubles-registration*              | Entscheidung  | Benutzerregistrierung                   |
 | 07   | *test-doubles-payment*                   | Entscheidung  | Zahlungsabwicklung                      |
 | 08   | *test-doubles-inventory*                 | Entscheidung  | Lagerbestand                            |
