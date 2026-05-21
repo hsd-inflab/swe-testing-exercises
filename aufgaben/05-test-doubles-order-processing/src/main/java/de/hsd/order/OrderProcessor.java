@@ -4,10 +4,7 @@ import de.company1.approval.RemoteApprover;
 import de.company2.notify.NotificationSender;
 
 /**
- * Processes an order: asks company1's approver whether the order is approved,
- * and on approval triggers company2's notification sender. Owned by our team
- * (hsd) and may be modified.
- *
+ * Owned by our team (hsd) and may be modified.
  */
 public class OrderProcessor {
 

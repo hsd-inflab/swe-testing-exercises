@@ -59,7 +59,7 @@ Die Sammlung enthält zwei didaktisch unterschiedliche Aufgabentypen:
 | 02   | *mock-notification-sender*               | Geführt       | Interaktion verifizieren                |
 | 03   | *stub-error-case*                        | Geführt       | Fehler-/Ausnahmepfad testen             |
 | 04   | *mock-interaction-verification*          | Geführt       | Aufrufparameter prüfen                  |
-| 05   | *test-doubles-order-discount*            | Entscheidung  | Rabattberechnung                        |
+| 05   | [test-doubles-order-processing](aufgaben/05-test-doubles-order-processing/) | Entscheidung  | Order Processing (Freigabe + Versand) |
 | 06   | *test-doubles-registration*              | Entscheidung  | Benutzerregistrierung                   |
 | 07   | *test-doubles-payment*                   | Entscheidung  | Zahlungsabwicklung                      |
 | 08   | *test-doubles-inventory*                 | Entscheidung  | Lagerbestand                            |
@@ -67,5 +67,5 @@ Die Sammlung enthält zwei didaktisch unterschiedliche Aufgabentypen:
 ## Hinweise für Lehrende
 
 - Jede Aufgabe ist einzeln klonbar / verteilbar.
-- Es gibt **keinen Parent-POM** — Versionen sind in jedem Aufgaben-POM eigenständig deklariert. Vorlage siehe [`docs/pom-template.xml`](docs/pom-template.xml).
+- Es gibt **keinen Parent-POM**. Versionen sind in jedem Aufgaben-POM eigenständig deklariert. Vorlage siehe [`docs/pom-template.xml`](docs/pom-template.xml).
 - Lösungen werden in einem separaten, privaten Branch oder Repository gepflegt (nicht Teil dieser öffentlichen Sammlung).
