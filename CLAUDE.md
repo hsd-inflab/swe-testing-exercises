@@ -33,7 +33,7 @@ swe-testing-exercises/
     └── pom-template.xml            # Vorlage für jede Aufgaben-pom.xml
 ```
 
-Maven-Konvention: Produktivcode unter `src/main/java`, Tests unter `src/test/java`. Basis-Package: `<aufgabenkurzname>`.
+Maven-Konvention: Produktivcode unter `src/main/java`, Tests unter `src/test/java`. Basis-Package: `ex<NN>` (z. B. `ex05` für Aufgabe 05). Sollen Eigentumsverhältnisse oder fachliche Gruppen abgebildet werden, geht das per Subpackage (z. B. `ex05.orderingplatform`, `ex05.riskassessment`).
 
 ## Aufgabentypen und Namensschema
 

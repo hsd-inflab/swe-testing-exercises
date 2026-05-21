@@ -17,15 +17,15 @@ Unsere Firma **OrderingPlatform** betreibt die Bestellplattform eines Onlineshop
 
 ## Technische Ausgangssituation
 
-| Klasse                                                  | Owner             | Veränderbar? |
-| ------------------------------------------------------- | ----------------- | ------------ |
-| `orderprocessing.orderingplatform.OrderProcessor`       | OrderingPlatform  | ja           |
-| `orderprocessing.orderingplatform.App` (Demo-`main`)    | OrderingPlatform  | ja           |
-| `orderprocessing.riskassessment.Approver` (Interface)   | RiskAssessment    | **nein**     |
-| `orderprocessing.riskassessment.RemoteApprover`         | RiskAssessment    | **nein**     |
-| `orderprocessing.logisticsprovider.NotificationSender`  | LogisticsProvider | **nein**     |
+| Klasse                                          | Owner             | Veränderbar? |
+| ----------------------------------------------- | ----------------- | ------------ |
+| `ex05.orderingplatform.OrderProcessor`          | OrderingPlatform  | ja           |
+| `ex05.orderingplatform.App` (Demo-`main`)       | OrderingPlatform  | ja           |
+| `ex05.riskassessment.Approver` (Interface)      | RiskAssessment    | **nein**     |
+| `ex05.riskassessment.RemoteApprover`            | RiskAssessment    | **nein**     |
+| `ex05.logisticsprovider.NotificationSender`     | LogisticsProvider | **nein**     |
 
-**Constraint:** Du darfst ausschließlich Code unter `orderprocessing.orderingplatform.*` ändern. Klassen unter `orderprocessing.riskassessment.*` und `orderprocessing.logisticsprovider.*` bleiben unverändert.
+**Constraint:** Du darfst ausschließlich Code unter `ex05.orderingplatform.*` ändern. Klassen unter `ex05.riskassessment.*` und `ex05.logisticsprovider.*` bleiben unverändert.
 
 ## Arbeitsaufträge
 
@@ -37,7 +37,7 @@ Unsere Firma **OrderingPlatform** betreibt die Bestellplattform eines Onlineshop
 
 3. **Unit of Work:** Bestimme in der Notation aus der Vorlesung die **Entry Points** und **Exit Points** des `OrderProcessor` (= Unit of Work).
 
-4. **Unit-Tests:** Schreibe geeignete Unit-Tests für `OrderProcessor` in `orderprocessing.orderingplatform.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
+4. **Unit-Tests:** Schreibe geeignete Unit-Tests für `OrderProcessor` in `ex05.orderingplatform.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
 
 5. **Integrations-Tests:** Schreibe **zwei** Integrations-Tests, in denen `OrderProcessor` zusammen mit dem **echten** `RemoteApprover` läuft. Überlege bewusst, wie du mit `NotificationSender` umgehst.
 
@@ -54,5 +54,5 @@ Demo zur Anschauung der echten Abhängigkeiten:
 
 ```bash
 mvn -q compile
-java -cp target/classes orderprocessing.orderingplatform.App
+java -cp target/classes ex05.orderingplatform.App
 ```

@@ -1,4 +1,4 @@
-package orderprocessing.logisticsprovider;
+package ex05.logisticsprovider;
 
 /**
  * Sends notifications about processed orders. Owned by LogisticsProvider and

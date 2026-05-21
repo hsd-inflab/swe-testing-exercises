@@ -1,7 +1,7 @@
-package orderprocessing.orderingplatform;
+package ex05.orderingplatform;
 
-import orderprocessing.riskassessment.RemoteApprover;
-import orderprocessing.logisticsprovider.NotificationSender;
+import ex05.riskassessment.RemoteApprover;
+import ex05.logisticsprovider.NotificationSender;
 
 public class App {
 

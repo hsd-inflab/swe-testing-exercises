@@ -1,4 +1,4 @@
-package orderprocessing.riskassessment;
+package ex05.riskassessment;
 
 import java.util.concurrent.ThreadLocalRandom;
 
