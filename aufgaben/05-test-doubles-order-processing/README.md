@@ -6,7 +6,7 @@
 
 Unsere Firma **OrderingPlatform** betreibt die Bestellplattform eines Onlineshops. Bevor eine Bestellung in den Versandprozess geht, muss der externe Dienstleister **RiskAssessment** sie freigeben. Geprüft werden Bonität, Bestellhistorie und Betrugssignale. Wird die Bestellung freigegeben, informiert unser System anschließend den externen Versandpartner **LogisticsProvider**, der den eigentlichen Versand inklusive Kundenbenachrichtigung anstößt. Wird sie abgelehnt, passiert nichts weiter. Die Kundin erfährt davon über einen separaten Kanal. Der Prüfdienst von RiskAssessment läuft über ein entferntes System und braucht spürbar Zeit für die Antwort. Der Versandstart bei LogisticsProvider löst reale Nebenwirkungen aus (CRM-Lookup, Templating, SMTP-Versand) und darf in Tests nicht versehentlich ausgelöst werden, sonst gehen z. B. echte E-Mails raus. Unser Team ist nur für die Orchestrierung der Verarbeitung zuständig.
 
-> *Hinweis:* Der Notification-Schritt ist fachlich kritisch, da er den realen Versand anstößt. In einem produktiven System müsste sein Erfolg explizit geprüft und im Fehlerfall behandelt werden (z. B. ausgelöste Exception, Retry, Outbox). Diese Fehlerbehandlung ist bewusst **nicht** Teil dieser Aufgabe.
+> *Hinweis:* Der Versand-Schritt ist fachlich kritisch, da er den realen Versand anstößt. In einem produktiven System müsste sein Erfolg explizit geprüft und im Fehlerfall behandelt werden (z. B. ausgelöste Exception, Retry, Outbox). Diese Fehlerbehandlung ist bewusst **nicht** Teil dieser Aufgabe.
 
 ## Lernziel
 
