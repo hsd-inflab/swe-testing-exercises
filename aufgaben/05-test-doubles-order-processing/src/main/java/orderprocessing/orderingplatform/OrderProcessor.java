@@ -1,10 +1,10 @@
-package de.hsd.order;
+package orderprocessing.orderingplatform;
 
-import de.company1.approval.RemoteApprover;
-import de.company2.notify.NotificationSender;
+import orderprocessing.riskassessment.RemoteApprover;
+import orderprocessing.logisticsprovider.NotificationSender;
 
 /**
- * Owned by our team (hsd) and may be modified.
+ * Owned by our team (OrderingPlatform) and may be modified.
  */
 public class OrderProcessor {
 

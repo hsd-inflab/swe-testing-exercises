@@ -4,7 +4,7 @@
 
 ## Fachliche Ausgangssituation
 
-Unsere Plattform verarbeitet eingehende Bestellungen aus dem Onlineshop. Bevor eine Bestellung in den Versandprozess geht, muss die Abteilung *Risiko & Freigabe* (extern bei company1) sie freigeben. Geprüft werden Bonität, Bestellhistorie und Betrugssignale. Wird die Bestellung freigegeben, informiert unser System anschließend den Versandpartner (extern bei company2), der den eigentlichen Versand inklusive Kundenbenachrichtigung anstößt. Wird sie abgelehnt, passiert nichts weiter. Die Kundin erfährt davon über einen separaten Kanal. Der Prüfdienst von company1 läuft über ein entferntes System und braucht spürbar Zeit für die Antwort. Der Versandstart bei company2 löst reale Nebenwirkungen aus (CRM-Lookup, Templating, SMTP-Versand) und darf in Tests nicht versehentlich ausgelöst werden, sonst gehen z. B. echte E-Mails raus. Unser Team (`hsd`) ist nur für die Orchestrierung der Verarbeitung zuständig.
+Unsere Firma **OrderingPlatform** betreibt die Bestellplattform eines Onlineshops. Bevor eine Bestellung in den Versandprozess geht, muss der externe Dienstleister **RiskAssessment** sie freigeben. Geprüft werden Bonität, Bestellhistorie und Betrugssignale. Wird die Bestellung freigegeben, informiert unser System anschließend den externen Versandpartner **LogisticsProvider**, der den eigentlichen Versand inklusive Kundenbenachrichtigung anstößt. Wird sie abgelehnt, passiert nichts weiter. Die Kundin erfährt davon über einen separaten Kanal. Der Prüfdienst von RiskAssessment läuft über ein entferntes System und braucht spürbar Zeit für die Antwort. Der Versandstart bei LogisticsProvider löst reale Nebenwirkungen aus (CRM-Lookup, Templating, SMTP-Versand) und darf in Tests nicht versehentlich ausgelöst werden, sonst gehen z. B. echte E-Mails raus. Unser Team ist nur für die Orchestrierung der Verarbeitung zuständig.
 
 > *Hinweis:* Der Notification-Schritt ist fachlich kritisch, da er den realen Versand anstößt. In einem produktiven System müsste sein Erfolg explizit geprüft und im Fehlerfall behandelt werden (z. B. ausgelöste Exception, Retry, Outbox). Diese Fehlerbehandlung ist bewusst **nicht** Teil dieser Aufgabe.
 
@@ -17,15 +17,15 @@ Unsere Plattform verarbeitet eingehende Bestellungen aus dem Onlineshop. Bevor e
 
 ## Technische Ausgangssituation
 
-| Klasse                                       | Owner    | Veränderbar? |
-| -------------------------------------------- | -------- | ------------ |
-| `de.hsd.order.OrderProcessor`                | hsd      | ja           |
-| `de.hsd.order.App` (Demo-`main`)             | hsd      | ja           |
-| `de.company1.approval.Approver` (Interface)  | company1 | **nein**     |
-| `de.company1.approval.RemoteApprover`        | company1 | **nein**     |
-| `de.company2.notify.NotificationSender`      | company2 | **nein**     |
+| Klasse                                                  | Owner             | Veränderbar? |
+| ------------------------------------------------------- | ----------------- | ------------ |
+| `orderprocessing.orderingplatform.OrderProcessor`       | OrderingPlatform  | ja           |
+| `orderprocessing.orderingplatform.App` (Demo-`main`)    | OrderingPlatform  | ja           |
+| `orderprocessing.riskassessment.Approver` (Interface)   | RiskAssessment    | **nein**     |
+| `orderprocessing.riskassessment.RemoteApprover`         | RiskAssessment    | **nein**     |
+| `orderprocessing.logisticsprovider.NotificationSender`  | LogisticsProvider | **nein**     |
 
-**Constraint:** Du darfst ausschließlich Code unter `de.hsd.*` ändern. Klassen unter `de.company1.*` und `de.company2.*` bleiben unverändert.
+**Constraint:** Du darfst ausschließlich Code unter `orderprocessing.orderingplatform.*` ändern. Klassen unter `orderprocessing.riskassessment.*` und `orderprocessing.logisticsprovider.*` bleiben unverändert.
 
 ## Arbeitsaufträge
 
@@ -37,7 +37,7 @@ Unsere Plattform verarbeitet eingehende Bestellungen aus dem Onlineshop. Bevor e
 
 3. **Unit of Work:** Bestimme in der Notation aus der Vorlesung die **Entry Points** und **Exit Points** des `OrderProcessor` (= Unit of Work).
 
-4. **Unit-Tests:** Schreibe geeignete Unit-Tests für `OrderProcessor` in `de.hsd.order.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
+4. **Unit-Tests:** Schreibe geeignete Unit-Tests für `OrderProcessor` in `orderprocessing.orderingplatform.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
 
 5. **Integrations-Tests:** Schreibe **zwei** Integrations-Tests, in denen `OrderProcessor` zusammen mit dem **echten** `RemoteApprover` läuft. Überlege bewusst, wie du mit `NotificationSender` umgehst.
 
@@ -54,5 +54,5 @@ Demo zur Anschauung der echten Abhängigkeiten:
 
 ```bash
 mvn -q compile
-java -cp target/classes de.hsd.order.App
+java -cp target/classes orderprocessing.orderingplatform.App
 ```

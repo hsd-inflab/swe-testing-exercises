@@ -1,10 +1,10 @@
-package de.company1.approval;
+package orderprocessing.riskassessment;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Concrete approver maintained by company1. Implements {@link Approver}.
- * Owned by company1 and MUST NOT be modified by us.
+ * Concrete approver maintained by RiskAssessment. Implements {@link Approver}.
+ * Owned by RiskAssessment and MUST NOT be modified by us.
  *
  * <p>Talks to a remote approval service, so calls take noticeable time.
  */
@@ -12,7 +12,7 @@ public class RemoteApprover implements Approver {
 
     @Override
     public boolean isApproved(String orderId) {
-        System.out.println("[RemoteApprover] Opening TLS connection to approval-service.company1.example...");
+        System.out.println("[RemoteApprover] Opening TLS connection to approval-service.riskassessment.example...");
         System.out.println("[RemoteApprover] Negotiating session token...");
         System.out.println("[RemoteApprover] Sending approval request for order " + orderId + "...");
         System.out.println("[RemoteApprover] Awaiting response from remote service (this can take a moment)...");

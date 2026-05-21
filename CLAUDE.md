@@ -33,7 +33,7 @@ swe-testing-exercises/
     └── pom-template.xml            # Vorlage für jede Aufgaben-pom.xml
 ```
 
-Maven-Konvention: Produktivcode unter `src/main/java`, Tests unter `src/test/java`. Basis-Package: `de.hsd.swe.testing.<aufgabenkurzname>`.
+Maven-Konvention: Produktivcode unter `src/main/java`, Tests unter `src/test/java`. Basis-Package: `<aufgabenkurzname>`.
 
 ## Aufgabentypen und Namensschema
 
@@ -48,7 +48,7 @@ Es gibt **zwei** didaktisch unterschiedliche Aufgabentypen; beide gehören in `a
 
 ## Didaktische Trennlinie (Stub vs. Mock)
 
-- **Stub** → SUT *liest* etwas von der Abhängigkeit, Test prüft **Zustand/Rückgabewert** (state verification).
+- **Stub** → SUT *liest* etwas von der Abhängigkeit, Test prüft **Zustand/Ergebnis** des SUT (state verification).
 - **Mock** → SUT *teilt* der Abhängigkeit etwas mit (Command), Test prüft die **Interaktion** (interaction verification).
 
 In Mockito ist technisch jedes `mock(...)`-Objekt ein "Mock"; die Unterscheidung Stub/Mock in dieser Sammlung bezieht sich auf die **Test-Intention**, nicht auf die API.

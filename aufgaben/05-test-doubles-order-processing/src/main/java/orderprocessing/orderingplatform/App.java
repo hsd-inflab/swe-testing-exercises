@@ -1,7 +1,7 @@
-package de.hsd.order;
+package orderprocessing.orderingplatform;
 
-import de.company1.approval.RemoteApprover;
-import de.company2.notify.NotificationSender;
+import orderprocessing.riskassessment.RemoteApprover;
+import orderprocessing.logisticsprovider.NotificationSender;
 
 public class App {
 
