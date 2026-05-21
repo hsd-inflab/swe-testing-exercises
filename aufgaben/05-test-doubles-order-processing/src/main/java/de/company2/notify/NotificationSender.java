@@ -7,6 +7,10 @@ package de.company2.notify;
 public class NotificationSender {
 
     public void send(String orderId) {
-        // Production: dispatch a real notification.
+        System.out.println("[NotificationSender] Preparing notification payload for order " + orderId + "...");
+        System.out.println("[NotificationSender] Resolving recipient address via CRM lookup...");
+        System.out.println("[NotificationSender] Rendering message template (locale=de_DE)...");
+        System.out.println("[NotificationSender] Connecting to SMTP relay smtp.company2.example...");
+        System.out.println("[NotificationSender] Dispatching message... done.");
     }
 }
