@@ -35,9 +35,9 @@ Unsere Firma **OrderingPlatform** betreibt die Bestellplattform eines Onlineshop
 
 2. **Sequenzdiagramm:** Erstelle ein Sequenzdiagramm für den Fall, dass die Anfrage *approved* wurde. Erstelle ein zweites Sequenzdiagramm für den Fall, dass die Anfrage nicht *approved* wurde.
 
-3. **Unit of Work:** Bestimme in der Notation aus der Vorlesung die **Entry Points** und **Exit Points** des `OrderProcessor` (= Unit of Work).
+3. **Unit of Work:** Erstelle in der Notation aus der Vorlesung die **Entry Points** und **Exit Points** des `OrderProcessor` (= Unit of Work).
 
-4. **Unit-Tests:** Schreibe geeignete Unit-Tests für `OrderProcessor` in `ex05.orderingplatform.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
+4. **Unit-Tests:** Schreibe zu jedem identifizierten Exit Point aus 3. mindestens einen Unit-Test für `OrderProcessor` in `ex05.orderingplatform.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
 
 5. **Integrations-Tests:** Schreibe **zwei** Integrations-Tests, in denen `OrderProcessor` zusammen mit dem **echten** `RemoteApprover` läuft. Überlege bewusst, wie du mit `NotificationSender` umgehst.
 
