@@ -51,18 +51,18 @@ Die Sammlung enthält zwei didaktisch unterschiedliche Aufgabentypen:
 
 ## Aufgabenübersicht
 
-> Diese Tabelle wächst mit der Sammlung. Aufgaben, die noch nicht angelegt sind, erscheinen kursiv.
+> **Status** (für die Lehrperson): 🔴 TODO · 🟡 WIP · 🔵 REVIEW · 🟢 DONE. **Studierende bearbeiten ausschließlich Aufgaben mit Status 🟢 DONE.**
 
-| Nr.  | Aufgabe                                  | Typ           | Thema (Stichwort)                       |
-| ---- | ---------------------------------------- | ------------- | --------------------------------------- |
-| 01   | *stub-controlled-return-value*           | Geführt       | Kontrollierte Rückgabewerte             |
-| 02   | *mock-notification-sender*               | Geführt       | Interaktion verifizieren                |
-| 03   | *stub-error-case*                        | Geführt       | Fehler-/Ausnahmepfad testen             |
-| 04   | *mock-interaction-verification*          | Geführt       | Aufrufparameter prüfen                  |
-| 05   | [test-doubles-order-processing](aufgaben/05-test-doubles-order-processing/) | Entscheidung  | Order Processing (Freigabe + Versand) |
-| 06   | [test-doubles-invoice-processing](aufgaben/06-test-doubles-invoice-processing/) | Entscheidung  | Invoice Processing (Steuer, Rabatt, PDF, Mail) |
-| 07   | *test-doubles-payment*                   | Entscheidung  | Zahlungsabwicklung                      |
-| 08   | *test-doubles-inventory*                 | Entscheidung  | Lagerbestand                            |
+| Nr.  | Aufgabe                                  | Typ           | Thema (Stichwort)                       | Status   |
+| ---- | ---------------------------------------- | ------------- | --------------------------------------- | -------- |
+| 01   | *stub-controlled-return-value*           | Geführt       | Kontrollierte Rückgabewerte             | 🔴 TODO  |
+| 02   | *mock-notification-sender*               | Geführt       | Interaktion verifizieren                | 🔴 TODO  |
+| 03   | *stub-error-case*                        | Geführt       | Fehler-/Ausnahmepfad testen             | 🔴 TODO  |
+| 04   | *mock-interaction-verification*          | Geführt       | Aufrufparameter prüfen                  | 🔴 TODO  |
+| 05   | [test-doubles-order-processing](aufgaben/05-test-doubles-order-processing/) | Entscheidung  | Order Processing (Freigabe + Versand) | 🔵 REVIEW |
+| 06   | [test-doubles-invoice-processing](aufgaben/06-test-doubles-invoice-processing/) | Entscheidung  | Invoice Processing (Steuer, Rabatt, PDF, Mail) | 🟡 WIP |
+| 07   | *test-doubles-payment*                   | Entscheidung  | Zahlungsabwicklung                      | 🔴 TODO  |
+| 08   | *test-doubles-inventory*                 | Entscheidung  | Lagerbestand                            | 🔴 TODO  |
 
 ## Hinweise für Lehrende
 
