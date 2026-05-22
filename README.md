@@ -60,7 +60,7 @@ Die Sammlung enthält zwei didaktisch unterschiedliche Aufgabentypen:
 | 03   | *stub-error-case*                        | Geführt       | Fehler-/Ausnahmepfad testen             |
 | 04   | *mock-interaction-verification*          | Geführt       | Aufrufparameter prüfen                  |
 | 05   | [test-doubles-order-processing](aufgaben/05-test-doubles-order-processing/) | Entscheidung  | Order Processing (Freigabe + Versand) |
-| 06   | *test-doubles-registration*              | Entscheidung  | Benutzerregistrierung                   |
+| 06   | [test-doubles-invoice-processing](aufgaben/06-test-doubles-invoice-processing/) | Entscheidung  | Invoice Processing (Steuer, Rabatt, PDF, Mail) |
 | 07   | *test-doubles-payment*                   | Entscheidung  | Zahlungsabwicklung                      |
 | 08   | *test-doubles-inventory*                 | Entscheidung  | Lagerbestand                            |
 
