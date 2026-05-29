@@ -57,7 +57,7 @@ Die Sammlung enthält zwei didaktisch unterschiedliche Aufgabentypen:
 | ---- | ---------------------------------------- | ------------- | --------------------------------------- | -------- |
 | 01   | [stub-controlled-return-value](aufgaben/01-stub-controlled-return-value/) | Geführt       | Kontrollierte Rückgabewerte             | 🔵 REVIEW |
 | 02   | [stub-subclass-controlled-return-value](aufgaben/02-stub-subclass-controlled-return-value/) | Geführt       | Stub als Unterklasse                    | 🔵 REVIEW |
-| 03   | *stub-error-case*                        | Geführt       | Fehler-/Ausnahmepfad testen             | 🔴 TODO  |
+| 03   | [stub-error-case](aufgaben/03-stub-error-case/) | Geführt       | Fehler-/Ausnahmepfad testen             | 🔵 REVIEW |
 | 04   | *mock-interaction-verification*          | Geführt       | Aufrufparameter prüfen                  | 🔴 TODO  |
 | 05   | [test-doubles-order-processing](aufgaben/05-test-doubles-order-processing/) | Entscheidung  | Order Processing (Freigabe + Versand) | 🔵 REVIEW |
 | 06   | [test-doubles-invoice-processing](aufgaben/06-test-doubles-invoice-processing/) | Entscheidung  | Invoice Processing (Steuer, Rabatt, PDF, Mail) | 🟡 WIP |
