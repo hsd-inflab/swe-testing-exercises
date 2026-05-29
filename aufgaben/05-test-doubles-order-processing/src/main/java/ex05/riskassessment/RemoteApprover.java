@@ -17,7 +17,7 @@ public class RemoteApprover implements Approver {
         System.out.println("[RemoteApprover] Sending approval request for order " + orderId + "...");
         System.out.println("[RemoteApprover] Awaiting response from remote service (this can take a moment)...");
 
-        int latencyMs = ThreadLocalRandom.current().nextInt(7000, 10001);
+        int latencyMs = ThreadLocalRandom.current().nextInt(10000, 20001);
         try {
             Thread.sleep(latencyMs);
         } catch (InterruptedException e) {

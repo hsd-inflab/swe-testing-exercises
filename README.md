@@ -55,7 +55,7 @@ Die Sammlung enthält zwei didaktisch unterschiedliche Aufgabentypen:
 
 | Nr.  | Aufgabe                                  | Typ           | Thema (Stichwort)                       | Status   |
 | ---- | ---------------------------------------- | ------------- | --------------------------------------- | -------- |
-| 01   | *stub-controlled-return-value*           | Geführt       | Kontrollierte Rückgabewerte             | 🔴 TODO  |
+| 01   | [stub-controlled-return-value](aufgaben/01-stub-controlled-return-value/) | Geführt       | Kontrollierte Rückgabewerte             | 🔵 REVIEW |
 | 02   | *mock-notification-sender*               | Geführt       | Interaktion verifizieren                | 🔴 TODO  |
 | 03   | *stub-error-case*                        | Geführt       | Fehler-/Ausnahmepfad testen             | 🔴 TODO  |
 | 04   | *mock-interaction-verification*          | Geführt       | Aufrufparameter prüfen                  | 🔴 TODO  |
