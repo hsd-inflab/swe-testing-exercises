@@ -18,7 +18,7 @@ public class PdfRenderer implements Renderer {
         System.out.println("[PdfRenderer] Compositing pages and applying template...");
         System.out.println("[PdfRenderer] Awaiting render worker (this can take a moment)...");
 
-        int latencyMs = ThreadLocalRandom.current().nextInt(5000, 9001);
+        int latencyMs = ThreadLocalRandom.current().nextInt(10000, 20001);
         try {
             Thread.sleep(latencyMs);
         } catch (InterruptedException e) {
