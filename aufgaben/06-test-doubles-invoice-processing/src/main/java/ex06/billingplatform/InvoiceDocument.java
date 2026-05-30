@@ -1,26 +1,26 @@
 package ex06.billingplatform;
 
-import java.math.BigDecimal;
-
 /**
  * Value type with one piece of logic: {@link #toRenderableContent()}.
  * Would normally be a Java record (see project README).
+ *
+ * <p>All monetary amounts are expressed in cents.
  */
 public class InvoiceDocument {
 
     private String invoiceId;
     private String customerEmail;
-    private BigDecimal subtotal;
-    private BigDecimal tax;
-    private BigDecimal discount;
-    private BigDecimal total;
+    private int subtotal;
+    private int tax;
+    private int discount;
+    private int total;
 
     public InvoiceDocument(String invoiceId,
                            String customerEmail,
-                           BigDecimal subtotal,
-                           BigDecimal tax,
-                           BigDecimal discount,
-                           BigDecimal total) {
+                           int subtotal,
+                           int tax,
+                           int discount,
+                           int total) {
         this.invoiceId = invoiceId;
         this.customerEmail = customerEmail;
         this.subtotal = subtotal;
@@ -45,35 +45,35 @@ public class InvoiceDocument {
         this.customerEmail = customerEmail;
     }
 
-    public BigDecimal getSubtotal() {
+    public int getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(BigDecimal subtotal) {
+    public void setSubtotal(int subtotal) {
         this.subtotal = subtotal;
     }
 
-    public BigDecimal getTax() {
+    public int getTax() {
         return tax;
     }
 
-    public void setTax(BigDecimal tax) {
+    public void setTax(int tax) {
         this.tax = tax;
     }
 
-    public BigDecimal getDiscount() {
+    public int getDiscount() {
         return discount;
     }
 
-    public void setDiscount(BigDecimal discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 
-    public BigDecimal getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(int total) {
         this.total = total;
     }
 
@@ -85,10 +85,10 @@ public class InvoiceDocument {
         return String.format(
                 "INVOICE %s%n"
                         + "Customer: %s%n"
-                        + "Subtotal: %s%n"
-                        + "Tax:      %s%n"
-                        + "Discount: %s%n"
-                        + "Total:    %s%n",
+                        + "Subtotal: %d%n"
+                        + "Tax:      %d%n"
+                        + "Discount: %d%n"
+                        + "Total:    %d%n",
                 invoiceId, customerEmail, subtotal, tax, discount, total
         );
     }

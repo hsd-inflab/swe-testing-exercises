@@ -1,25 +1,20 @@
 package ex06.billingplatform;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 /**
  * Applies a discount based on the gross amount (subtotal + tax). Internal
- * helper of the UoW.
+ * helper of the UoW. All amounts in cents.
  */
 public class DiscountApplier {
 
-    private static final BigDecimal GROSS_THRESHOLD = new BigDecimal("100.00");
-    private static final BigDecimal DISCOUNT_RATE = new BigDecimal("0.05");
+    private static final int GROSS_THRESHOLD = 10000;
+    private static final int DISCOUNT_PERCENT = 5;
 
     public Discount apply(InvoiceRequest req, Tax tax) {
-        BigDecimal gross = req.getSubtotal().add(tax.getAmount());
-        if (gross.compareTo(GROSS_THRESHOLD) < 0) {
-            return new Discount(BigDecimal.ZERO.setScale(2));
+        int gross = req.getSubtotal() + tax.getAmount();
+        if (gross < GROSS_THRESHOLD) {
+            return new Discount(0);
         }
-        BigDecimal amount = gross
-                .multiply(DISCOUNT_RATE)
-                .setScale(2, RoundingMode.HALF_UP);
+        int amount = gross * DISCOUNT_PERCENT / 100;
         return new Discount(amount);
     }
 }

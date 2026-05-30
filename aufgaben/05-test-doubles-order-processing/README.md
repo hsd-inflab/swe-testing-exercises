@@ -39,7 +39,7 @@ Unsere Firma **OrderingPlatform** betreibt die Bestellplattform eines Onlineshop
 
 3. **Unit of Work:** Erstelle in der Notation aus der Vorlesung die **Entry Points** und **Exit Points** des `OrderProcessor` (= Unit of Work).
 
-4. **Unit-Tests:** Schreibe zu jedem identifizierten Exit Point aus 3. mindestens einen Unit-Test für `OrderProcessor` in `ex05.orderingplatform.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). Die Test Doubles sollen handgeschrieben werden; verwende dafür kein Framework wie Mockito. **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
+4. **Unit-Tests:** Schreibe zu jedem identifizierten Exit Point aus 3. mindestens einen Unit-Test für `OrderProcessor` (= System under Test) in `ex05.orderingplatform.OrderProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). Die Test Doubles sollen handgeschrieben werden; verwende dafür kein Framework wie Mockito. **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
 
 5. **Integrations-Tests:** Schreibe **zwei** Integrations-Tests, in denen `OrderProcessor` zusammen mit dem **echten** `RemoteApprover` läuft: einen für den Fall, dass die Anfrage *approved* wurde, und einen für den Fall, dass die Anfrage nicht *approved* wurde. Überlege bewusst, wie du mit `NotificationSender` umgehst.
 

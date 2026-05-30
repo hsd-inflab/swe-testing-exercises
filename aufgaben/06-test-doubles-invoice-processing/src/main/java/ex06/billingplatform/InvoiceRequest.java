@@ -1,17 +1,17 @@
 package ex06.billingplatform;
 
-import java.math.BigDecimal;
-
 /**
  * Value type. Would normally be a Java record (see project README).
+ *
+ * <p>Monetary amounts are expressed in cents (e.g., 25000 = 250.00 EUR).
  */
 public class InvoiceRequest {
 
     private String invoiceId;
     private String customerEmail;
-    private BigDecimal subtotal;
+    private int subtotal;
 
-    public InvoiceRequest(String invoiceId, String customerEmail, BigDecimal subtotal) {
+    public InvoiceRequest(String invoiceId, String customerEmail, int subtotal) {
         this.invoiceId = invoiceId;
         this.customerEmail = customerEmail;
         this.subtotal = subtotal;
@@ -33,11 +33,11 @@ public class InvoiceRequest {
         this.customerEmail = customerEmail;
     }
 
-    public BigDecimal getSubtotal() {
+    public int getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(BigDecimal subtotal) {
+    public void setSubtotal(int subtotal) {
         this.subtotal = subtotal;
     }
 

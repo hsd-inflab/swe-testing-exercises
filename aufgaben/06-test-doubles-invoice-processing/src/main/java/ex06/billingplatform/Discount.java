@@ -1,23 +1,23 @@
 package ex06.billingplatform;
 
-import java.math.BigDecimal;
-
 /**
  * Value type. Would normally be a Java record (see project README).
+ *
+ * <p>{@code amount} is expressed in cents.
  */
 public class Discount {
 
-    private BigDecimal amount;
+    private int amount;
 
-    public Discount(BigDecimal amount) {
+    public Discount(int amount) {
         this.amount = amount;
     }
 
-    public BigDecimal getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

@@ -3,8 +3,6 @@ package ex06.billingplatform;
 import ex06.maildelivery.Mailer;
 import ex06.renderingservice.PdfRenderer;
 
-import java.math.BigDecimal;
-
 public class App {
 
     public static void main(String[] args) {
@@ -19,7 +17,7 @@ public class App {
         InvoiceRequest req = new InvoiceRequest(
                 "INV-2026-001",
                 "kundin@example.com",
-                new BigDecimal("250.00")
+                25000
         );
 
         System.out.println(">>> Processing invoice " + req.getInvoiceId() + " ...");

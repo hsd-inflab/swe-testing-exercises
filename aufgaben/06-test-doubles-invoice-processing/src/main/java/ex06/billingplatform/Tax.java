@@ -1,33 +1,34 @@
 package ex06.billingplatform;
 
-import java.math.BigDecimal;
-
 /**
  * Value type. Would normally be a Java record (see project README).
+ *
+ * <p>{@code amount} is expressed in cents. {@code rate} is the percentage
+ * applied (e.g., 19 for 19 %).
  */
 public class Tax {
 
-    private BigDecimal amount;
-    private BigDecimal rate;
+    private int amount;
+    private int rate;
 
-    public Tax(BigDecimal amount, BigDecimal rate) {
+    public Tax(int amount, int rate) {
         this.amount = amount;
         this.rate = rate;
     }
 
-    public BigDecimal getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public BigDecimal getRate() {
+    public int getRate() {
         return rate;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(int rate) {
         this.rate = rate;
     }
 
