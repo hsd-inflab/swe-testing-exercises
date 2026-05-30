@@ -24,6 +24,8 @@ Für den Unit-Test von `WelcomeMessageCreator` soll `TimeBasedGreetingProvider` 
 
 **Constraint:** Du darfst für die Lösung ausschließlich Code unter `src/test/java` ändern. Der Produktivcode bleibt unverändert.
 
+**Hinweis zu `System.out`:** Die `System.out.println(...)`-Ausgaben im Produktivcode dienen nur dazu, die Demo auf der Konsole echter wirken zu lassen. Sie sind für die Lösung nicht relevant und sollen in den Tests nicht als eigener Exit Point betrachtet werden.
+
 ## Arbeitsaufträge
 
 1. Lies den Produktivcode von `WelcomeMessageCreator`, `GreetingProvider` und `TimeBasedGreetingProvider`.

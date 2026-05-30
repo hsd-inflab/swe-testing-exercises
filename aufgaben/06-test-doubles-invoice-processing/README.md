@@ -27,6 +27,8 @@ Die Klassen der beiden externen Unternehmen **dürfen nicht verändert werden**.
 
 > *Hinweis:* Die Datentypen in unserem Package sind als klassische Klassen mit Gettern und Settern umgesetzt. In modernem Java würden sie als Java Records geschrieben (klassische Form hier bewusst zur Demonstration).
 
+**Hinweis zu `System.out`:** Die `System.out.println(...)`-Ausgaben im Produktivcode dienen nur dazu, die Demo auf der Konsole echter wirken zu lassen. Sie sind für die Lösung nicht relevant und sollen in den Tests nicht als eigener Exit Point betrachtet werden.
+
 ## Arbeitsaufträge
 
 > Reflektiere nach jeder Teilaufgabe kurz: Was hast du dabei neu erkannt? Welche Annahme musstest du anpassen?

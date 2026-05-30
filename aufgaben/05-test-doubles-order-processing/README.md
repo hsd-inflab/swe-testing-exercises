@@ -27,6 +27,8 @@ Unsere Firma **OrderingPlatform** betreibt die Bestellplattform eines Onlineshop
 
 **Constraint:** Du darfst ausschließlich Code unter `ex05.orderingplatform.*` ändern. Klassen unter `ex05.riskassessment.*` und `ex05.logisticsprovider.*` bleiben unverändert.
 
+**Hinweis zu `System.out`:** Die `System.out.println(...)`-Ausgaben im Produktivcode dienen nur dazu, die Demo auf der Konsole echter wirken zu lassen. Sie sind für die Lösung nicht relevant und sollen in den Tests nicht als eigener Exit Point betrachtet werden.
+
 ## Arbeitsaufträge
 
 > Reflektiere nach jeder Teilaufgabe kurz: Was hast du dabei neu erkannt? Welche Annahme musstest du anpassen?
