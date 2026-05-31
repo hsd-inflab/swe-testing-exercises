@@ -10,6 +10,7 @@ Beim Testen von `ParcelStatusMessageCreator` spielt diese seltene Exception eine
 
 ## Lernziel
 
+- Existierenden Code in Klassen- und Sequenzdiagrammen erfassen.
 - Einen seltenen Fehlerfall deterministisch testbar machen.
 - Einen handgeschriebenen Stub erstellen, der eine Exception wirft.
 - Mit `assertThrows` prüfen, dass ein erwarteter Ausnahmepfad eintritt.
@@ -31,17 +32,21 @@ Beim Testen von `ParcelStatusMessageCreator` spielt diese seltene Exception eine
 
 1. Lies den Produktivcode von `ParcelStatusMessageCreator` und `ParcelTrackingClient`.
 
-2. Verstehe den Ist-Stand: `ParcelStatusMessageCreator` hängt direkt von `ParcelTrackingClient` ab. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `ParcelStatusMessageCreator` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `ParcelStatusMessageCreator` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `ParcelStatusMessageCreator` dort ein echtes Objekt von `ParcelTrackingClient` erhält.
+2. **Klassendiagramm:** Erstelle ein UML-Klassendiagramm für alle Klassen in diesem Projekt.
 
-3. Schau dir besonders `ParcelTrackingClient#currentStatusFor(String)` an. Die Methode liefert normalerweise einen Paketstatus zurück. Selten wirft sie aber eine `IllegalStateException`, weil die Verbindung zum Tracking-Dienst fehlgeschlagen ist. Überlege, warum ein Unit-Test schlecht wäre, der den echten `ParcelTrackingClient` zwanzigmal oder öfter aufruft und darauf hofft, dass irgendwann die Exception auftritt.
+3. **Sequenzdiagramm:** Erstelle ein Sequenzdiagramm für den Fehlerfall, in dem `ParcelStatusMessageCreator` eine Statusnachricht erstellen soll und `ParcelTrackingClient#currentStatusFor(String)` eine `IllegalStateException` wirft.
 
-4. Schreibe in `ex03.parcelapp.ParcelStatusMessageCreatorTest` einen Unit-Test für den Fehlerfall. Verwende für die `ParcelTrackingClient`-Abhängigkeit ein Test Double. Dazu eignet sich ein Stub, der von `ParcelTrackingClient` erbt und `currentStatusFor(String)` überschreibt. Diese überschreibende Methode soll immer eine `IllegalStateException` werfen, zum Beispiel mit der Nachricht `"connection to tracking service failed"`.
+4. Verstehe den Ist-Stand: `ParcelStatusMessageCreator` hängt direkt von `ParcelTrackingClient` ab. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `ParcelStatusMessageCreator` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `ParcelStatusMessageCreator` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `ParcelStatusMessageCreator` dort ein echtes Objekt von `ParcelTrackingClient` erhält.
 
-5. Verwende im Test `assertThrows`, um zu prüfen, dass `ParcelStatusMessageCreator#createStatusMessage(String)` die erwartete Exception auslöst. Der Test soll im AAA-Stil (Arrange, Act, Assert) geschrieben sein, wie in der Vorlesung besprochen.
+5. Schau dir besonders `ParcelTrackingClient#currentStatusFor(String)` an. Die Methode liefert normalerweise einen Paketstatus zurück. Selten wirft sie aber eine `IllegalStateException`, weil die Verbindung zum Tracking-Dienst fehlgeschlagen ist. Überlege, warum ein Unit-Test schlecht wäre, der den echten `ParcelTrackingClient` zwanzigmal oder öfter aufruft und darauf hofft, dass irgendwann die Exception auftritt.
 
-6. Schreibe einen zweiten Test für denselben Fehlerfall, diesmal aber ohne eine spezielle JUnit-Methode für Exceptions wie `assertThrows` zu verwenden. Der Test soll grün sein, wenn die Exception geworfen wird. Der Test soll rot sein, wenn keine Exception geworfen wird. Überlege, wie du das mit passenden Assertions ausdrücken kannst.
+6. Schreibe in `ex03.parcelapp.ParcelStatusMessageCreatorTest` einen Unit-Test für den Fehlerfall. Verwende für die `ParcelTrackingClient`-Abhängigkeit ein Test Double. Dazu eignet sich ein Stub, der von `ParcelTrackingClient` erbt und `currentStatusFor(String)` überschreibt. Diese überschreibende Methode soll immer eine `IllegalStateException` werfen, zum Beispiel mit der Nachricht `"connection to tracking service failed"`.
 
-7. Reflexion: Warum ist der Stub in diesem Test geeigneter als der echte `ParcelTrackingClient`? Warum ist es hier sinnvoll, dass der Stub die Exception immer wirft, obwohl der echte Fehler nur selten auftritt?
+7. Verwende im Test `assertThrows`, um zu prüfen, dass `ParcelStatusMessageCreator#createStatusMessage(String)` die erwartete Exception auslöst. Der Test soll im AAA-Stil (Arrange, Act, Assert) geschrieben sein, wie in der Vorlesung besprochen.
+
+8. Schreibe einen zweiten Test für denselben Fehlerfall, diesmal aber ohne eine spezielle JUnit-Methode für Exceptions wie `assertThrows` zu verwenden. Der Test soll grün sein, wenn die Exception geworfen wird. Der Test soll rot sein, wenn keine Exception geworfen wird. Überlege, wie du das mit passenden Assertions ausdrücken kannst.
+
+9. Reflexion: Warum ist der Stub in diesem Test geeigneter als der echte `ParcelTrackingClient`? Warum ist es hier sinnvoll, dass der Stub die Exception immer wirft, obwohl der echte Fehler nur selten auftritt?
 
 ## Tests ausführen
 

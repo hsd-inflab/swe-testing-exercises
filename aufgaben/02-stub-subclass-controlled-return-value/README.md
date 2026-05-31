@@ -12,6 +12,7 @@ Für den Unit-Test von `WelcomeMessageCreator` soll `TimeBasedGreetingProvider` 
 
 ## Lernziel
 
+- Existierenden Code in Klassen- und Sequenzdiagrammen erfassen.
 - Eine Abhängigkeit ersetzen, obwohl kein Interface vorhanden ist.
 - Einen handgeschriebenen Stub als Unterklasse einer konkreten Klasse erstellen.
 - Einen kontrollierten Rückgabewert im Test verwenden.
@@ -33,11 +34,15 @@ Für den Unit-Test von `WelcomeMessageCreator` soll `TimeBasedGreetingProvider` 
 
 1. Lies den Produktivcode von `WelcomeMessageCreator` und `TimeBasedGreetingProvider`.
 
-2. Vergleiche den Ist-Stand mit Aufgabe 01: `WelcomeMessageCreator` verwendet hier nicht das Interface `GreetingProvider`, sondern direkt die konkrete Klasse `TimeBasedGreetingProvider`. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `WelcomeMessageCreator` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `WelcomeMessageCreator` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `WelcomeMessageCreator` dort ein Objekt von `TimeBasedGreetingProvider` erhält.
+2. **Klassendiagramm:** Erstelle ein UML-Klassendiagramm für alle Klassen in diesem Projekt.
 
-3. Schreibe in `ex02.welcomeapp.WelcomeMessageCreatorTest` einen Unit-Test für `WelcomeMessageCreator`. Verwende für die `TimeBasedGreetingProvider`-Abhängigkeit ein Test Double. Dazu eignet sich ein Stub, der einen geeigneten Wert zurückgibt, zum Beispiel `"Hallo"`. Weil es kein Interface gibt, muss der Stub von `TimeBasedGreetingProvider` erben und `currentGreeting()` überschreiben, damit er in `WelcomeMessageCreator` injiziert werden kann. Schreibe den Test im AAA-Stil (Arrange, Act, Assert), wie in der Vorlesung besprochen.
+3. **Sequenzdiagramm:** Erstelle ein Sequenzdiagramm für den Fall, dass `WelcomeMessageCreator` eine Begrüßungsnachricht erstellt.
 
-4. Reflexion: Welchen Vorteil und welchen Nachteil hat ein Stub als Unterklasse von `TimeBasedGreetingProvider` im Vergleich zu einem Stub, der wie in Aufgabe 01 nur das Interface `GreetingProvider` implementiert?
+4. Vergleiche den Ist-Stand mit Aufgabe 01: `WelcomeMessageCreator` verwendet hier nicht das Interface `GreetingProvider`, sondern direkt die konkrete Klasse `TimeBasedGreetingProvider`. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `WelcomeMessageCreator` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `WelcomeMessageCreator` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `WelcomeMessageCreator` dort ein Objekt von `TimeBasedGreetingProvider` erhält.
+
+5. Schreibe in `ex02.welcomeapp.WelcomeMessageCreatorTest` einen Unit-Test für `WelcomeMessageCreator`. Verwende für die `TimeBasedGreetingProvider`-Abhängigkeit ein Test Double. Dazu eignet sich ein Stub, der einen geeigneten Wert zurückgibt, zum Beispiel `"Hallo"`. Weil es kein Interface gibt, muss der Stub von `TimeBasedGreetingProvider` erben und `currentGreeting()` überschreiben, damit er in `WelcomeMessageCreator` injiziert werden kann. Schreibe den Test im AAA-Stil (Arrange, Act, Assert), wie in der Vorlesung besprochen.
+
+6. Reflexion: Welchen Vorteil und welchen Nachteil hat ein Stub als Unterklasse von `TimeBasedGreetingProvider` im Vergleich zu einem Stub, der wie in Aufgabe 01 nur das Interface `GreetingProvider` implementiert?
 
 ## Tests ausführen
 

@@ -8,6 +8,7 @@ Für den Unit-Test von `AccountCreationReporter` soll kein echter Audit-Eintrag 
 
 ## Lernziel
 
+- Existierenden Code in Klassen- und Sequenzdiagrammen erfassen.
 - Eine Abhängigkeit über ein Interface ersetzen.
 - Einen handgeschriebenen Mock erstellen, der ein Interface implementiert.
 - Eine Interaktion mit einer Abhängigkeit verifizieren.
@@ -31,11 +32,15 @@ Für den Unit-Test von `AccountCreationReporter` soll kein echter Audit-Eintrag 
 
 1. Lies den Produktivcode von `AccountCreationReporter`, `AuditLog` und `RemoteAuditLog`.
 
-2. Verstehe den Ist-Stand: `AccountCreationReporter` verwendet das Interface `AuditLog`. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `AccountCreationReporter` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `AccountCreationReporter` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `AccountCreationReporter` dort ein Objekt von `RemoteAuditLog` erhält. Überlege, welchen Nachteil es hätte, beim Unit-Test von `AccountCreationReporter` ebenfalls ein Objekt der Klasse `RemoteAuditLog` zu verwenden.
+2. **Klassendiagramm:** Erstelle ein UML-Klassendiagramm für alle Klassen in diesem Projekt.
 
-3. Schreibe in `ex04.accountapp.AccountCreationReporterTest` einen Unit-Test für `AccountCreationReporter#reportAccountCreated(String, String)`. Verwende für die `AuditLog`-Abhängigkeit ein handgeschriebenes Test Double. Dazu eignet sich ein Mock, der `AuditLog` implementiert, den Aufruf von `record(String, String, String)` speichert und später im Test auslesbar macht. Der Mock soll in `AccountCreationReporter` injiziert werden. Schreibe den Test im AAA-Stil (Arrange, Act, Assert), wie in der Vorlesung besprochen.
+3. **Sequenzdiagramm:** Erstelle ein Sequenzdiagramm für den Fall, dass `AccountCreationReporter` einen Audit-Eintrag für ein neu angelegtes Kundenkonto erstellt.
 
-4. Prüfe im Assert-Teil, dass `AccountCreationReporter` genau den erwarteten Audit-Eintrag an die Abhängigkeit übergibt. Für den Aufruf
+4. Verstehe den Ist-Stand: `AccountCreationReporter` verwendet das Interface `AuditLog`. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `AccountCreationReporter` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `AccountCreationReporter` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `AccountCreationReporter` dort ein Objekt von `RemoteAuditLog` erhält. Überlege, welchen Nachteil es hätte, beim Unit-Test von `AccountCreationReporter` ebenfalls ein Objekt der Klasse `RemoteAuditLog` zu verwenden.
+
+5. Schreibe in `ex04.accountapp.AccountCreationReporterTest` einen Unit-Test für `AccountCreationReporter#reportAccountCreated(String, String)`. Verwende für die `AuditLog`-Abhängigkeit ein handgeschriebenes Test Double. Dazu eignet sich ein Mock, der `AuditLog` implementiert, den Aufruf von `record(String, String, String)` speichert und später im Test auslesbar macht. Der Mock soll in `AccountCreationReporter` injiziert werden. Schreibe den Test im AAA-Stil (Arrange, Act, Assert), wie in der Vorlesung besprochen.
+
+6. Prüfe im Assert-Teil, dass `AccountCreationReporter` genau den erwarteten Audit-Eintrag an die Abhängigkeit übergibt. Für den Aufruf
 
    ```java
    reporter.reportAccountCreated("ACC-123", "Ada");
@@ -47,7 +52,7 @@ Für den Unit-Test von `AccountCreationReporter` soll kein echter Audit-Eintrag 
    - ID der betroffenen Entität: `"ACC-123"`
    - Details: `"Account for Ada was created."`
 
-5. Reflexion: Warum ist hier ein Mock geeigneter als ein Stub? Woran erkennst du in diesem Beispiel, dass nicht ein Rückgabewert, sondern eine Interaktion im Mittelpunkt steht?
+7. Reflexion: Warum ist hier ein Mock geeigneter als ein Stub? Woran erkennst du in diesem Beispiel, dass nicht ein Rückgabewert, sondern eine Interaktion im Mittelpunkt steht?
 
 ## Tests ausführen
 

@@ -12,6 +12,7 @@ Der besondere Fokus dieser Aufgabe liegt auf dem Fehlerfall: Wenn die E-Mail-Adr
 
 ## Lernziel
 
+- Existierenden Code in Klassen- und Sequenzdiagrammen erfassen.
 - Einen Fehlerfall testen, bei dem eine externe Abhängigkeit nicht aufgerufen werden darf.
 - Einen handgeschriebenen Mock erstellen, der ein Interface implementiert.
 - Eine erfolgte Interaktion mit erwarteten Argumenten verifizieren.
@@ -35,11 +36,15 @@ Der besondere Fokus dieser Aufgabe liegt auf dem Fehlerfall: Wenn die E-Mail-Adr
 
 1. Lies den Produktivcode von `PasswordResetRequester`, `PasswordResetMailSender` und `RemotePasswordResetMailSender`.
 
-2. Verstehe den Ist-Stand: `PasswordResetRequester` verwendet das Interface `PasswordResetMailSender`. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `PasswordResetRequester` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `PasswordResetRequester` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `PasswordResetRequester` dort ein Objekt von `RemotePasswordResetMailSender` erhält.
+2. **Klassendiagramm:** Erstelle ein UML-Klassendiagramm für alle Klassen in diesem Projekt.
 
-3. Schreibe in `ex06.accountapp.PasswordResetRequesterTest` einen Unit-Test für den Erfolgsfall von `PasswordResetRequester#requestPasswordReset(String, String)`. Verwende für die `PasswordResetMailSender`-Abhängigkeit ein handgeschriebenes Test Double. Dazu eignet sich ein Mock, der `PasswordResetMailSender` implementiert, den Aufruf von `sendPasswordResetMail(String, String, String)` speichert und später im Test auslesbar macht. Schreibe den Test im AAA-Stil (Arrange, Act, Assert), wie in der Vorlesung besprochen.
+3. **Sequenzdiagramme:** Erstelle ein Sequenzdiagramm für den Erfolgsfall mit gültiger E-Mail-Adresse. Erstelle ein zweites Sequenzdiagramm für den Fehlerfall mit ungültiger E-Mail-Adresse, in dem die Mail-Abhängigkeit nicht aufgerufen wird.
 
-4. Prüfe im Assert-Teil, dass `PasswordResetRequester` genau die erwartete Mail an die Abhängigkeit übergibt. Für den Aufruf
+4. Verstehe den Ist-Stand: `PasswordResetRequester` verwendet das Interface `PasswordResetMailSender`. Über Konstruktor-Injection, also eine Form von Dependency Injection, erhält `PasswordResetRequester` die Abhängigkeit injiziert. Das bedeutet: Beim Erzeugen von `PasswordResetRequester` wird ein passendes Objekt übergeben. In der Klasse `App` siehst du, dass `PasswordResetRequester` dort ein Objekt von `RemotePasswordResetMailSender` erhält.
+
+5. Schreibe in `ex06.accountapp.PasswordResetRequesterTest` einen Unit-Test für den Erfolgsfall von `PasswordResetRequester#requestPasswordReset(String, String)`. Verwende für die `PasswordResetMailSender`-Abhängigkeit ein handgeschriebenes Test Double. Dazu eignet sich ein Mock, der `PasswordResetMailSender` implementiert, den Aufruf von `sendPasswordResetMail(String, String, String)` speichert und später im Test auslesbar macht. Schreibe den Test im AAA-Stil (Arrange, Act, Assert), wie in der Vorlesung besprochen.
+
+6. Prüfe im Assert-Teil, dass `PasswordResetRequester` genau die erwartete Mail an die Abhängigkeit übergibt. Für den Aufruf
 
    ```java
    requester.requestPasswordReset("CUST-123", "ada@example.test");
@@ -51,11 +56,11 @@ Der besondere Fokus dieser Aufgabe liegt auf dem Fehlerfall: Wenn die E-Mail-Adr
    - Betreff: `"Reset your password"`
    - Nachrichtentext: `"Use this link to reset the password for account CUST-123: https://account.example/reset?customerId=CUST-123"`
 
-5. Schreibe einen zweiten Unit-Test für den Fehlerfall. Rufe `requester.requestPasswordReset("CUST-123", "not-an-email")` auf und prüfe mit `assertThrows`, dass eine `IllegalArgumentException` geworfen wird.
+7. Schreibe einen zweiten Unit-Test für den Fehlerfall. Rufe `requester.requestPasswordReset("CUST-123", "not-an-email")` auf und prüfe mit `assertThrows`, dass eine `IllegalArgumentException` geworfen wird.
 
-6. Prüfe im selben Fehlerfall zusätzlich mit deinem Mock, dass `sendPasswordResetMail(String, String, String)` nicht aufgerufen wurde. Der Test soll also nicht nur die Exception prüfen, sondern auch die ausbleibende Interaktion mit der externen Abhängigkeit.
+8. Prüfe im selben Fehlerfall zusätzlich mit deinem Mock, dass `sendPasswordResetMail(String, String, String)` nicht aufgerufen wurde. Der Test soll also nicht nur die Exception prüfen, sondern auch die ausbleibende Interaktion mit der externen Abhängigkeit.
 
-7. Reflexion: Warum ist der Mock in diesem Test geeigneter als der echte `RemotePasswordResetMailSender`? Woran erkennst du, dass hier nicht ein Rückgabewert kontrolliert wird, sondern eine Interaktion beziehungsweise eine ausbleibende Interaktion geprüft wird? Was ist das Risiko beim Verwenden eines Mocks für diesen Fall?
+9. Reflexion: Warum ist der Mock in diesem Test geeigneter als der echte `RemotePasswordResetMailSender`? Woran erkennst du, dass hier nicht ein Rückgabewert kontrolliert wird, sondern eine Interaktion beziehungsweise eine ausbleibende Interaktion geprüft wird? Was ist das Risiko beim Verwenden eines Mocks für diesen Fall?
 
 ## Tests ausführen
 
