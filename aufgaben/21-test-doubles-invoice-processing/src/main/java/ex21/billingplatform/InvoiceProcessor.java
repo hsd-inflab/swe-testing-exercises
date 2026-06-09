@@ -1,7 +1,7 @@
 package ex21.billingplatform;
 
 import ex21.maildelivery.Mailer;
-import ex21.renderingservice.PdfRenderer;
+import ex21.renderingservice.Renderer;
 
 /**
  * Orchestrates the invoice processing: tax -> discount -> document -> PDF -> mail.
@@ -12,18 +12,18 @@ public class InvoiceProcessor {
     private final TaxCalculator taxCalculator;
     private final DiscountApplier discountApplier;
     private final InvoiceBuilder invoiceBuilder;
-    private final PdfRenderer pdfRenderer;
+    private final Renderer renderer;
     private final Mailer mailer;
 
     public InvoiceProcessor(TaxCalculator taxCalculator,
                             DiscountApplier discountApplier,
                             InvoiceBuilder invoiceBuilder,
-                            PdfRenderer pdfRenderer,
+                            Renderer renderer,
                             Mailer mailer) {
         this.taxCalculator = taxCalculator;
         this.discountApplier = discountApplier;
         this.invoiceBuilder = invoiceBuilder;
-        this.pdfRenderer = pdfRenderer;
+        this.renderer = renderer;
         this.mailer = mailer;
     }
 
@@ -31,8 +31,17 @@ public class InvoiceProcessor {
         Tax tax = taxCalculator.calculate(req);
         Discount discount = discountApplier.apply(req, tax);
         InvoiceDocument doc = invoiceBuilder.build(req, tax, discount);
-        byte[] pdf = pdfRenderer.render(doc.toRenderableContent());
+        byte[] pdf = renderer.render(doc.toRenderableContent());
+
+        if (isEmpty(pdf)) {
+            throw new IllegalStateException("rendered invoice PDF must not be empty");
+        }
+        
         mailer.send(req.getCustomerEmail(), pdf);
         return new InvoiceResult(req.getInvoiceId(), doc.getTotal());
+    }
+
+    private boolean isEmpty(byte[] pdf) {
+        return pdf == null || pdf.length == 0;
     }
 }
