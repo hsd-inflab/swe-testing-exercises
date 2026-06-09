@@ -29,9 +29,9 @@ Für den Unit-Test von `WelcomeMessageCreator` soll `TimeBasedGreetingProvider` 
 
 ## Arbeitsaufträge
 
-1. Lies den Produktivcode von `WelcomeMessageCreator`, `GreetingProvider` und `TimeBasedGreetingProvider`.
+1. Lies den Produktivcode von `App`, `WelcomeMessageCreator`, `GreetingProvider` und `TimeBasedGreetingProvider`.
 
-2. **Klassendiagramm:** Erstelle ein UML-Klassendiagramm für alle Klassen in diesem Projekt.
+2. **Klassendiagramm:** Erstelle ein UML-Klassendiagramm für alle Klassen im Produktivcode.
 
 3. **Sequenzdiagramm:** Erstelle ein Sequenzdiagramm für den Fall, dass `WelcomeMessageCreator` eine Begrüßungsnachricht erstellt.
 
