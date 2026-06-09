@@ -4,7 +4,7 @@
 
 ## Fachliche Ausgangssituation
 
-Unsere Firma **BillingPlatform** rechnet im Auftrag von Onlineshops Bestellungen ab und versendet die fertigen Rechnungen an die Kundinnen. Für jede Rechnung wird intern die Mehrwertsteuer berechnet, ab einem Bruttobetrag wird ein Rabatt angewendet und das fertige Rechnungsdokument zusammengestellt. Anschließend rendert der externe Dienstleister **RenderingService** den Rechnungsinhalt zu einer PDF-Datei. Die PDF wird vom externen Versandanbieter **MailDelivery** als E-Mail-Anhang an die Empfängerin verschickt. Der RenderingService läuft auf einer entfernten Render-Farm und braucht spürbar Zeit für die Antwort. Der Versand bei MailDelivery löst reale Nebenwirkungen aus (SMTP-Versand, echte E-Mails an Kundinnen) und darf nicht versehentlich ausgelöst werden. Unser Team ist für die Orchestrierung des Ablaufs sowie für die Steuer-, Rabatt- und Dokumentenlogik zuständig.
+Unsere Firma **BillingPlatform** rechnet im Auftrag von Onlineshops Bestellungen ab und versendet die fertigen Rechnungen an die Kundinnen. Für jede Rechnung wird intern die Mehrwertsteuer berechnet, ab einem Bruttobetrag von 100,00 EUR wird ein Rabatt angewendet und das fertige Rechnungsdokument zusammengestellt. Anschließend rendert der externe Dienstleister **RenderingService** den Rechnungsinhalt zu einer PDF-Datei. Die PDF wird vom externen Versandanbieter **MailDelivery** als E-Mail-Anhang an die Empfängerin verschickt. Der RenderingService läuft auf einer entfernten Render-Farm und braucht spürbar Zeit für die Antwort. Der Versand bei MailDelivery löst reale Nebenwirkungen aus (SMTP-Versand, echte E-Mails an Kundinnen) und darf nicht versehentlich ausgelöst werden. Unser Team ist für die Orchestrierung des Ablaufs sowie für die Steuer-, Rabatt- und Dokumentenlogik zuständig.
 
 > *Hinweis:* Der Versand-Schritt ist fachlich kritisch, da er die fertige Rechnung an die Kundin schickt. In einem produktiven System müsste sein Erfolg explizit geprüft und im Fehlerfall behandelt werden (z. B. ausgelöste Exception, Retry, Outbox). Diese Fehlerbehandlung ist bewusst **nicht** Teil dieser Aufgabe.
 
@@ -35,7 +35,7 @@ Die Klassen der beiden externen Unternehmen **dürfen nicht verändert werden**.
 
 1. **Klassendiagramm:** Erstelle ein UML-Klassendiagramm für alle Klassen in diesem Projekt. Mache die Eigentumsverhältnisse sichtbar (z. B. Farben oder Notizen pro Owner).
 
-2. **Sequenzdiagramme:** Erstelle ein Sequenzdiagramm für den Fall *mit* Rabatt (Brutto ≥ 100). Erstelle ein zweites Sequenzdiagramm für den Fall *ohne* Rabatt (Brutto < 100).
+2. **Sequenzdiagramme:** Erstelle ein Sequenzdiagramm für den Fall *mit* Rabatt (Brutto ≥ 100,00 EUR). Erstelle ein zweites Sequenzdiagramm für den Fall *ohne* Rabatt (Brutto < 100,00 EUR).
 
 3. **Unit of Work:** Bestimme zuerst, welche Klassen zum Unit of Work (UoW) gehören (Tipp: nicht jede Klasse unter `ex21.billingplatform.*` ist UoW-Code, z. B. ist die Demo-`App` keiner und reine Datentypen sind es auch nicht). Erstelle dann in der Notation aus der Vorlesung die **Entry Points** und **Exit Points** des UoW.
 

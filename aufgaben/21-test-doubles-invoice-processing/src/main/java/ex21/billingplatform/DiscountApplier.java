@@ -6,12 +6,12 @@ package ex21.billingplatform;
  */
 public class DiscountApplier {
 
-    private static final int GROSS_THRESHOLD = 10000;
+    private static final int GROSS_DISCOUNT_THRESHOLD_CENTS = 10_000;
     private static final int DISCOUNT_PERCENT = 5;
 
     public Discount apply(InvoiceRequest req, Tax tax) {
         int gross = req.getSubtotal() + tax.getAmount();
-        if (gross < GROSS_THRESHOLD) {
+        if (gross < GROSS_DISCOUNT_THRESHOLD_CENTS) {
             return new Discount(0);
         }
         int amount = gross * DISCOUNT_PERCENT / 100;
