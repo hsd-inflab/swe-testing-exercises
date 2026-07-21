@@ -41,7 +41,7 @@ Die Klassen der beiden externen Unternehmen **dürfen nicht verändert werden**.
 
 4. **Welche Klassen testen?** Schaue dir die Klassen unseres Teams unter `ex21.billingplatform.*` an. Welche sollten wir definitiv mit Unit-Tests abdecken, welche sind nicht notwendig? **Begründe deine Antwort** jeweils kurz.
 
-5. **Unit-Tests:** Schreibe zu jedem identifizierten Exit Point aus 3. mindestens einen Unit-Test für `InvoiceProcessor` (= System under Test) in `ex21.billingplatform.InvoiceProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). Entscheide außerdem bewusst, ob die **internen Kollaboratoren** `TaxCalculator`, `DiscountApplier` und `InvoiceBuilder` als Test Doubles oder als echte Instanzen eingesetzt werden. **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
+5. **Unit-Tests:** Schreibe zu jedem identifizierten Exit Point aus 3. mindestens einen Unit-Test für `InvoiceProcessor` (Teil des System under Test) in `ex21.billingplatform.InvoiceProcessorTest`. Verwende Test Doubles für die Abhängigkeiten und entscheide selbst, welcher Typ je Abhängigkeit passt (z. B. Mock oder Stub). Entscheide außerdem bewusst, ob die **internen Kollaboratoren** `TaxCalculator`, `DiscountApplier` und `InvoiceBuilder` als Test Doubles oder als echte Instanzen eingesetzt werden. **Begründe deine Wahl** kurz im Test (Kommentar) oder schriftlich.
 
 6. **Integrations-Tests:** Schreibe **zwei** Integrations-Tests, in denen `InvoiceProcessor` zusammen mit dem **echten** `PdfRenderer` läuft. Überlege bewusst, wie du mit `Mailer` umgehst.
 
